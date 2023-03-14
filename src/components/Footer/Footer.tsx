@@ -8,7 +8,8 @@ const Footer = () => {
   const theme = useThemeContext()
   
     return (
-        <div className={theme.theme === 'light' ? styles.wrapper: styles.wrapperDark}>
+      <div className={theme.theme === 'light' ? styles.container : styles.containerDark}>
+        <div className={theme.theme === 'light' ? styles.wrapper : styles.wrapperDark}>
           <div className={styles.copyright}>
             ©2022 Blogolog
           </div>
@@ -20,6 +21,7 @@ const Footer = () => {
             </label>
           </div>
         </div>
+      </div>
     )
   }
   

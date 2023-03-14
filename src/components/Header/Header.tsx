@@ -20,7 +20,7 @@ const handleBurgerMenuClick = () => {
           <img src={logo} alt="" />
           <div className={!open ? styles.burgerMenu : styles.burgerMenuOpen} onClick={handleBurgerMenuClick}></div>
           </div>
-          <div className={open ? `${styles.container} ${styles.active}` : styles.container}>
+          <div className={open ? `${styles.container}  ${styles.active}` : styles.container}>
               <input className={theme.theme === 'light' ? styles.search : styles.searchDark} type="text" placeholder='Search...'/>
               <div className={styles.user}>
                 <img src={noneAuth} alt="" />
