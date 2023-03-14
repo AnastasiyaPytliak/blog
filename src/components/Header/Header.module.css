@@ -3,10 +3,19 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  color: #313037;
+}
+
+.wrapperDark {
+  background-color: rgb(49, 48, 55, 0.9);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
 }
 
 .logo {
-  margin: 20px 32px;
+  padding: 20px 32px;
   cursor: pointer;
 }
 
@@ -18,7 +27,6 @@
 
 .search {
   width: 0%;
-  height: 96px;
   background-image: url('../../image/search-icon.png');
   background-repeat: no-repeat;
   background-position: bottom 36px right 32px;
@@ -31,7 +39,23 @@
   font-size: 16px;
   line-height: 24px;
   color: rgba(49, 48, 55, 0.5);
-  transition: all 0.8s ease-out;
+}
+
+.searchDark {
+  width: 0%;
+  background-color: rgb(49, 48, 55, 0);
+  background-image: url('../../image/search-icon-dark.png');
+  background-repeat: no-repeat;
+  background-position: bottom 36px right 32px;
+  border: none;
+  border-right: 1px solid #313037;
+  padding: 0 32px;
+  cursor: pointer;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(49, 48, 55, 0.5);
 }
 
 .search:focus {
@@ -41,6 +65,17 @@
   background-repeat: no-repeat;
   background-position: bottom 36px right 32px;
   outline: none;
+  transition: 0.5s;
+}
+
+.searchDark:focus {
+  width: 85%;
+  background-color: #fff;
+  background-image: url('../../image/cancel-icon.png');
+  background-repeat: no-repeat;
+  background-position: bottom 36px right 32px;
+  outline: none;
+  transition: 0.5s;
 }
 
 .user {
@@ -53,7 +88,6 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 34px;
-  color: #313037;
   margin-left: 16px;
   white-space: nowrap;
 }
@@ -63,13 +97,16 @@
     display: block;
   }
 
+  .wrapperDark {
+    display: block;
+  }
+
   .logo {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 18px 24px;
+    padding: 18px 24px;
   }
-
   
   .burgerMenu {
     width: 24px;
@@ -103,8 +140,26 @@
     padding: 0 24px;
     order: 2;
   }
+
+  .searchDark {
+    width: 100%;
+    height: 83px;
+    background-position: bottom 29px right 24px;
+    border-bottom: 1px solid #E8E8E8;
+    border-right: none;
+    padding: 0 24px;
+    order: 2;
+  }
   
   .search:focus {
+    width: 100%;
+    background-color: #fff;
+    background-image: url('../../image/search-icon.png');
+    background-position: bottom 29px right 24px;
+    transition: none;
+  }
+
+  .searchDark:focus {
     width: 100%;
     background-color: #fff;
     background-image: url('../../image/search-icon.png');
@@ -117,7 +172,6 @@
     margin: 0;
     width: 100%;
     padding: 18px 24px;
-    background-color: rgba(49, 48, 55, 0.1);
+    background-color: rgba(26, 26, 30, 0.1);
   }
 }
-
