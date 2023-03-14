@@ -1,0 +1,123 @@
+.wrapper {
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  margin: 20px 32px;
+  cursor: pointer;
+}
+
+.container  {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+}
+
+.search {
+  width: 0%;
+  height: 96px;
+  background-image: url('../../image/search-icon.png');
+  background-repeat: no-repeat;
+  background-position: bottom 36px right 32px;
+  border: none;
+  border-right: 1px solid #F3F3F3;
+  padding: 0 32px;
+  cursor: pointer;
+
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(49, 48, 55, 0.5);
+  transition: all 0.8s ease-out;
+}
+
+.search:focus {
+  width: 85%;
+  background-color: rgba(49, 48, 55, 0.1);
+  background-image: url('../../image/cancel-icon.png');
+  background-repeat: no-repeat;
+  background-position: bottom 36px right 32px;
+  outline: none;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin: 20px 32px;
+}
+
+.username {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 34px;
+  color: #313037;
+  margin-left: 16px;
+  white-space: nowrap;
+}
+
+@media (max-width: 770px) {
+  .wrapper {
+    display: block;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 18px 24px;
+  }
+
+  
+  .burgerMenu {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../image/burger-menu.png');
+    background-repeat: no-repeat;
+  }
+
+  .burgerMenuOpen {
+    width: 24px;
+    height: 24px;
+    background-image: url('../../image/cancel-icon.png');
+    background-repeat: no-repeat;
+  }
+
+  .container {
+    display: none;
+  }
+
+  .container.active {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .search {
+    width: 100%;
+    height: 83px;
+    background-position: bottom 29px right 24px;
+    border-bottom: 1px solid #E8E8E8;
+    border-right: none;
+    padding: 0 24px;
+    order: 2;
+  }
+  
+  .search:focus {
+    width: 100%;
+    background-color: #fff;
+    background-image: url('../../image/search-icon.png');
+    background-position: bottom 29px right 24px;
+    transition: none;
+  }
+
+  .user {
+    order: 1;
+    margin: 0;
+    width: 100%;
+    padding: 18px 24px;
+    background-color: rgba(49, 48, 55, 0.1);
+  }
+}
+
