@@ -36,12 +36,11 @@
   color: rgba(255, 255, 255, 0.5);
 
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  
-
 }
 
 .theme {
   display: flex;
+  align-items: center;
 }
 
 .theme p {
@@ -98,12 +97,31 @@
   transition: 0.4s;
 }
 
-@media (max-width: 770px) {
+@media (max-width: 1200px) {
   .wrapper {
     padding: 34px 40px;
   }
 
   .wrapperDark {
     padding: 34px 40px;
+  }
+}
+
+@media (max-width: 400px) {
+  .wrapper {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .wrapperDark {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .theme {
+    justify-content: center;
+    margin-top: 24px;
   }
 }
