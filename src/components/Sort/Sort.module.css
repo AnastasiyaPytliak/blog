@@ -1,0 +1,167 @@
+.container  {
+  display: flex;
+  justify-content: space-between;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  margin-bottom: 64px;
+}
+
+.typeOfFiltr {
+  display: flex;
+  align-items: center;
+}
+
+.filtr {
+  background-color: rgba(49, 48, 55, 0.1);
+  padding: 16px 40px;
+  border-radius: 4px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.filtrDark {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 16px 40px;
+  border-radius: 4px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.filtr.active {
+  background-color: #6C1BDB;
+  color: #fff;
+}
+
+.filtr:hover {
+  background-color: #6C1BDB;
+  color: #fff;
+}
+
+.filtrDark:hover {
+  background-color: #6C1BDB;
+}
+
+.sort {
+  position: absolute;
+  cursor: pointer;
+}
+
+.sortNone {
+  display: none;
+}
+
+.select {
+  padding: 16px 20px;
+  border-radius: 4px;
+  background-color: #fff;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.date {
+  display: none;
+}
+
+.select span {
+  color: rgba(49, 48, 55, 0.5);
+}
+
+.select::after {
+  content: url('../../image/drop.png');
+  height: 15px;
+  margin-left: 70px;
+}
+
+.option {
+  width: 256px;
+  background-color: #fff;
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.option.active {
+  color: #6C1BDB;
+}
+
+.option:hover {
+  color: #6C1BDB;
+}
+
+.option:first-child {
+  border-bottom: 1px solid rgba(49, 48, 55, 0.1);
+}
+
+@media (max-width: 990px) {
+  .container  {
+    justify-content: space-around;
+    margin-bottom: 56px;
+  }
+
+  .typeOfFiltr.typeMob {
+    display: block;
+    position: absolute;
+    margin-top: 65px;
+    cursor: pointer;
+  }
+  
+  .filtr {
+    width: 328px;
+    background-color: #fff;
+    padding: 16px 20px;
+    border-radius: 4px;
+    border-bottom: 1px solid rgba(49, 48, 55, 0.1);
+  }
+  
+  .filtrDark {
+    width: 328px;
+    background-color: #fff;
+    padding: 16px 20px;
+    border-radius: 4px;
+  }
+  
+  .filtr.active {
+    background-color: #fff;
+    color: #6C1BDB;
+  }
+  
+  .filtr:hover {
+    background-color: #fff;
+    color: #6C1BDB;
+  }
+  
+  .filtrDark:hover {
+    background-color: #fff;
+  }
+
+  .date {
+    display: block;
+  }
+  
+  .select.dateType {
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .select {
+    width: 328px;
+  }
+
+  .option {
+    width: 328px;
+  }
+
+  .select::after {
+    content: url('../../image/drop.png');
+    height: 15px;
+    margin-left: 138px;
+  }
+
+  .select.dateType::after {
+    content: url('../../image/drop.png');
+    margin-left: 185px;
+  }
+}
