@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 72px;
+}
+
+.containerDark {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding-bottom: 72px;
+}
+
+.paginationContainer {
+  display: flex;
+
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+button {
+  background: transparent;
+}
+
+svg {
+  cursor: pointer;
+}
+
+svg:hover path {
+  fill: #6C1BDB;
+}
+
+.path {
+  fill:#313037;
+}
+
+.pathDark {
+  fill:#fff;
+}
+

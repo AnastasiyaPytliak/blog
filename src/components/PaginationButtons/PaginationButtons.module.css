@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+}
+
+.containerDark {
+  display: flex;
+}
+
+.btn {
+  margin: 0 16px;
+  cursor: pointer;
+}
+
+.btnActive {
+  margin: 0 16px;
+  cursor: pointer;
+
+  color: #6C1BDB;
+}
