@@ -61,6 +61,14 @@
   cursor: pointer;
 }
 
+.selectDark {
+  padding: 16px 20px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
 .date {
   display: none;
 }
@@ -75,9 +83,22 @@
   margin-left: 70px;
 }
 
+.selectDark::after {
+  content: url('../../image/drop.png');
+  height: 15px;
+  margin-left: 70px;
+}
+
 .option {
-  width: 256px;
+  width: 250px;
   background-color: #fff;
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.optionDark {
+  width: 256px;
+  background: rgba(255, 255, 255, 0.1);
   padding: 16px 20px;
   border-radius: 4px;
 }
