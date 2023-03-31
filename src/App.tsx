@@ -25,11 +25,6 @@ function App() {
               <Route path="/" element={<Navigate replace to="/posts" />} />
               <Route path='/posts'>
               <Route index element={<Cards />}></Route>
-                  {/* <Route element={
-                    <AuthRoot route='/news' dependency={true}>
-                      <ContentPage />
-                    </AuthRoot>
-                  } path=':id' /> */}
               </Route>
               <Route path='/search' element={<Search />} />
             </Routes>

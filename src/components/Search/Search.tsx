@@ -11,12 +11,11 @@ const Search = ( ) => {
   const theme = useThemeContext()  
   const {value, getValue} = useSearchContext()  
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     getValue?.(e.target.value)
   }
 
   return (
-    <>
       <input className={theme.theme === 'light' ? styles.search : styles.searchDark} 
         type="text" 
         placeholder='Search...'  
@@ -24,7 +23,6 @@ const Search = ( ) => {
         onClick={() => navigate('/search')}  
         value={value} 
       />
-    </>
   )
 }
 

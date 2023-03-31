@@ -10,7 +10,6 @@ const Header = () => {
 
 const theme = useThemeContext()  
 const [open, setOpen] = useState(false)
-const [searchInput, setSearchInput] = useState('');
 
 const handleBurgerMenuClick = () => {
   setOpen(!open)
