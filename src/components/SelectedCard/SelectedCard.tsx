@@ -1,28 +1,28 @@
 import React, { useState }  from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useThemeContext } from '../../context/theme';
-import styles from "./Card.module.css"
+import styles from "./SelectedCard.module.css"
 
-export interface ICard {
+export interface ISelectedCard {
   id: number,
   image: string,
-  date: string,
+  summary: string,
   title: string
 }
 
-const Card = ({ id, image, date, title }: ICard) => {
-  const navigate = useNavigate()
+const SelectedCard = ({ id, image, title, summary }: ISelectedCard) => {
 
   const theme = useThemeContext()
+
   
     return (
-      <div className={theme.theme === 'light' ? styles.container : styles.containerDark} onClick={() => navigate(`${id}`)}>
-        <div className={theme.theme === 'light' ? styles.wrapper : styles.wrapperDark}>
+      <div className={theme.theme === 'light' ? styles.container : styles.containerDark} >
+        <div className={theme.theme === 'light' ? styles.wrapper : styles.wrapperDark} >
           <div className={styles.image}>
             <img className={styles.img} src={image} alt="Couldn't Load Image" />
           </div>
           <div className={styles.text}>
-            <div className={theme.theme === 'light' ? styles.date : styles.dateDark}>{date}</div>
+            <div className={theme.theme === 'light' ? styles.date : styles.dateDark}>{summary}</div>
             <div className={styles.title}>{title}</div>
           </div>
         </div>
@@ -30,4 +30,4 @@ const Card = ({ id, image, date, title }: ICard) => {
     )
   }
   
-  export default Card
+  export default SelectedCard

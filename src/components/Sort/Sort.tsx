@@ -38,7 +38,7 @@ const Sort = ({ value, date, changeValue, changeDate } :ISort ) => {
       case 'A-Z': 
         return value = 'A-Z';
       case 'Z-A':
-        return date = 'Z-A';
+        return value = 'Z-A';
       default:
         return stateSort
     }

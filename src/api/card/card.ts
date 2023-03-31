@@ -1,5 +1,7 @@
 import { api } from ".."
 import { getDate } from "../../utils/utils";
+import { ICurrentCard } from "../../pages/CurrentCard/CurrentCard";
+
 
 export interface ICard {
   id: number;
@@ -15,10 +17,6 @@ export interface GetCard {
   cards: ICard[]
 }
 
-interface ICount {
-  data: number
-}
-
 export const getCards = async (
   content: string,
   page: number,
@@ -30,10 +28,10 @@ export const getCards = async (
 
   let link = `${content === 'Articles' ? 'articles' : 'blogs'}?_limit=12&`
 
-  if (page && page > 1) link += `_start=${(page - 1) * 12}&`
+  if (page > 1) link += `_start=${(page - 1) * 12}&`
   if (sortDay && dates) link += `_publishedAt_gte=${sortDay}&`
-  if (sort && sort === 'A-Z') link += `_sort=title&`
-  if (sort && sort === 'Z-A') link += `_sort=summary&`
+  if (sort === 'A-Z') link += `_sort=title&`
+  if (sort === 'Z-A') link += `_sort=summary&`
   if (search) link += `&title_contains=${search}`
 
   const response = await api.get(link)
@@ -48,11 +46,24 @@ export const getCardsCount = async (
   search?: string
 ) => {
   const sortDay = getDate(dates)
+
   let link = `/${content === 'Articles' ? 'articles' : 'blogs'}/count?`
+
   if (sortDay && dates) link += `_publishedAt_gte=${sortDay}&`
-  if (sort && sort === 'A-Z') link += `_sort=title&`
-  if (sort && sort === 'Z-A') link += `_sort=summary&`
+  if (sort === 'A-Z') link += `_sort=title&`
+  if (sort === 'Z-A') link += `_sort=summary&`
   if (search) link += `&title_contains=${search}`
-  const response: ICount = await api.get(link)
+
+  const response = await api.get(link)
+  return response.data
+}
+
+
+export const getCurrentCard = async (
+  id: string | undefined, 
+  content: string 
+) => {
+  const link = `/${content === 'Articles' ? 'articles' : 'blogs'}/${id}`
+  const response :ICurrentCard = await api.get(link)
   return response
 }

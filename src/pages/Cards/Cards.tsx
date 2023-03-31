@@ -24,9 +24,11 @@ const Cards = () => {
     (async () => {
       const response = await getCards(content, page, sortValue, dates )
       const cardsCount = await getCardsCount(content, sortValue, dates)
-      const allPagesCount = getPagesCount(cardsCount.data)
+      const allPagesCount = getPagesCount(cardsCount)
       setCards(response)
       setAllPages(allPagesCount)     
+      console.log(response);
+      
     })()
   }, [content, page, sortValue, dates])
 
