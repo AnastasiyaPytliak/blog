@@ -41,8 +41,9 @@ const Pagination = ({ page, allPages, changePage }: IPagination) => {
             {newPages.map((el) => 
               <PaginationButton changePage={changePage} page={el} propPage={page} key={Math.random()} />
             )}
-            <div>...</div>
-            <PaginationButton propPage={page} changePage={changePage} page={allPages[allPages.length - 1]} />
+            {page < (allPages[allPages.length - 1] - 2) ? <div>...</div> : null}
+            {page < (allPages[allPages.length - 1] - 1) ? 
+              <PaginationButton propPage={page} changePage={changePage} page={allPages[allPages.length - 1]} /> : null}
           </div>
 
           <button onClick={handleNextBtnClick}>

@@ -17,7 +17,6 @@ export const useInitThemeContext = () => {
       setTheme("light");
     }
   }
-  console.log(theme);
   
   return {
     theme: theme,
