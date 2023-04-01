@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 
 type SearchContext = {
-  value?: string;
+  value?: string,
   getValue?: (value :string) => void
 }
 
@@ -21,4 +21,3 @@ export const useInitSearchContext = () => {
 }
 
 export const useSearchContext = () => useContext(SearchContext)
-

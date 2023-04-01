@@ -1,50 +1,56 @@
 import React, { useEffect, useState } from "react";
-import SelectedCard, { ISelectedCard } from "../../components/SelectedCard/SelectedCard";
 import PageTemplate from "../PageTemplate/PageTemplate";
-import { useNavigate, useParams } from 'react-router-dom';
+import SelectedCard from "../../components/SelectedCard/SelectedCard";
+import Card from "../../components/Card/Card";
+import { api } from "../../api";
+import { INewCard } from "../../api/card/card";
+import { useParams } from 'react-router-dom';
+import { getformatDate } from "../../utils/utils";
 import { useThemeContext } from "../../context/theme";
+import { useContentContext } from "../../context/content";
 import styles from "./CurrentCard.module.css"
-import { getCards, getCurrentCard } from "../../api/card/card";
-import { ICard } from "../../components/Card/Card";
 
-export interface ICurrentCard {
-  data: Post
+interface ICard {
+  id: number,
+  title: string
+  summary: string,
+  imageUrl: string
 }
 
-export interface Post extends ICard {
-  summary: string;
-  imageUrl: string;
+export interface ICurrentCard {
+  data: ICard
 }
 
 export const CurrentCard = ( ) => {
-  const { id } = useParams()
-  const [cards, setCards] = useState<ICard[]>()
-  const [card, setCard] = useState<Post>()
-  const [content, setContent] = useState('Articles')
+  const [cards, setCards] = useState<INewCard[]>()
+  const [card, setCard] = useState<ICard>()
 
   const theme = useThemeContext()
-  const navigate = useNavigate()
-  console.log(useParams());
-
+  const content = useContentContext() 
+  const { id } = useParams()
 
   useEffect (() =>  {
     (async () => {
-      const response = await getCurrentCard(id, content)
+      const response = await api.get(`/${content.content === 'Articles' ? 'articles' : 'blogs'}/${id}`)
+      const responseCard = await api.get(`/${content.content === 'Articles' ? 'articles' : 'blogs'}?_limit=3`)
       setCard(response.data) 
-      console.log(response);
-
+      setCards(responseCard.data) 
     })()
-  }, [id, content])
+  }, [])
 
 
   return (
-    <PageTemplate title={''} linkName={`Home / Post ${id}`}>
+    <PageTemplate title={''} linkName={'Home'} post={`/ Post ${id}`}>
           <div className={theme ? styles.container : styles.containerDark}>
             {card ? <SelectedCard title={card.title} summary={card.summary} image={card.imageUrl} id={card.id} />: null}
-            {/* <div className={styles.posts}>
-                {posts ? posts.map((el) => <SmallPost image={el.imageUrl} date={el.publishedAt} title={el.title} id={el.id} key={nanoid()} />): null}
-            </div> */}
+            <div className={styles.cardsMob}>
+              <div className={styles.cards}>
+                {cards ? cards.map((card) => 
+                  <Card id={card.id} key={card.id} image={card.imageUrl} date={getformatDate(card.publishedAt)} title={card.title} />) 
+                : null}
+              </div>
+            </div>
         </div>
     </PageTemplate>
-  );
-};
+  )
+}

@@ -1,9 +1,7 @@
 import { api } from ".."
-import { getDate } from "../../utils/utils";
-import { ICurrentCard } from "../../pages/CurrentCard/CurrentCard";
+import { getDate } from "../../utils/utils"
 
-
-export interface ICard {
+export interface INewCard {
   id: number;
   imageUrl: string;
   publishedAt: string;
@@ -14,11 +12,11 @@ export interface GetCard {
   count: number,
   next: string | null;
   previous: string | null;
-  cards: ICard[]
+  cards: INewCard[]
 }
 
 export const getCards = async (
-  content: string,
+  content: string | undefined,
   page: number,
   sort: string,
   dates: string,
@@ -40,7 +38,7 @@ export const getCards = async (
 
 
 export const getCardsCount = async (
-  content: string,
+  content: string | undefined,
   sort: string,
   dates: string,
   search?: string
@@ -56,14 +54,4 @@ export const getCardsCount = async (
 
   const response = await api.get(link)
   return response.data
-}
-
-
-export const getCurrentCard = async (
-  id: string | undefined, 
-  content: string 
-) => {
-  const link = `/${content === 'Articles' ? 'articles' : 'blogs'}/${id}`
-  const response :ICurrentCard = await api.get(link)
-  return response
 }

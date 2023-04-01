@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useThemeContext } from '../../context/theme';
 
 import styles from "./Footer.module.css"
@@ -26,3 +26,4 @@ const Footer = () => {
   }
   
   export default Footer
+  

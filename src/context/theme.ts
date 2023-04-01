@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 
 type ThemeContext = {
-  theme?: string;
+  theme?: string,
   changeThemeFunc?: () => void
 }
 
@@ -25,4 +25,3 @@ export const useInitThemeContext = () => {
 }
 
 export const useThemeContext = () => useContext(ThemeContext)
-

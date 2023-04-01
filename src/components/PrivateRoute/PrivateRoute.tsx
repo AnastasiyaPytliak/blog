@@ -2,9 +2,9 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 
 interface IPrivateRoute {
-  children: React.ReactNode;
-  dependency: boolean;
-  root: string;
+  children: React.ReactNode,
+  dependency: boolean,
+  root: string
 }
 
 const PrivateRoute = ({children, dependency, root }: IPrivateRoute) => {

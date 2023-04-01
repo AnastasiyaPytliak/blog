@@ -22,13 +22,10 @@
 
 button {
   background: transparent;
-}
-
-svg {
   cursor: pointer;
 }
 
-svg:hover path {
+.button:hover svg path {
   fill: #6C1BDB;
 }
 
@@ -39,4 +36,3 @@ svg:hover path {
 .pathDark {
   fill:#fff;
 }
-
