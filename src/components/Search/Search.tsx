@@ -10,7 +10,7 @@ const Search = ( ) => {
   const theme = useThemeContext()  
   const navigate = useNavigate()
 
-  const handleSearch = (e: any) => {
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     getValue?.(e.target.value)
   }
 
