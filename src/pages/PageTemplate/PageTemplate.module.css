@@ -25,7 +25,7 @@
 }
 
 .link {
-  display: block;
+  display: inline-block;
   margin-right: 5px;
   margin-bottom: 20px;
   font-weight: 400;
@@ -33,7 +33,7 @@
   line-height: 24px;
   color: #313037;
   text-decoration: none;
-  float: left;
+  cursor: pointer;
 }
 
 .link:hover {
@@ -41,7 +41,7 @@
 }
 
 .linkDark {
-  display: block;
+  display: inline-block;
   margin-right: 5px;
   margin-bottom: 20px;
   font-weight: 400;
@@ -49,7 +49,7 @@
   line-height: 24px;
   color: #fff;
   text-decoration: none;
-  float: left;
+  cursor: pointer;
 }
 
 .linkDark:hover {

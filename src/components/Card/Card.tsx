@@ -14,9 +14,13 @@ const Card = ({ id, image, date, title }: ICard) => {
 
   const theme = useThemeContext()
   const navigate = useNavigate()
+
+  const auth = localStorage.getItem('auth')
+
+  const handleDivClick = () =>  auth === 'true' ? navigate(`${id}`) : navigate('/signin')
   
     return (
-      <div className={theme.theme === 'light' ? styles.container : styles.containerDark} onClick={() => navigate(`${id}`)}>
+      <div className={theme.theme === 'light' ? styles.container : styles.containerDark} onClick={handleDivClick}>
         <div className={theme.theme === 'light' ? styles.wrapper : styles.wrapperDark}>
           <div className={styles.image}>
             <img className={styles.img} src={image} alt="" />

@@ -23,7 +23,7 @@ const Search = () => {
     (async () => {
       const response = await getCards(content.content, page, '', '',  value.value)
       const cardsCount = await getCardsCount(content.content, '', '', value.value)
-      const allPagesCount = getPagesCount(cardsCount.data)
+      const allPagesCount = getPagesCount(cardsCount)
       setCards(response)
       setAllPages(allPagesCount)     
     })()

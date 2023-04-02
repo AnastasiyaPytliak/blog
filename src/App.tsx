@@ -10,6 +10,7 @@ import { ThemeContext, useInitThemeContext } from './context/theme';
 import { SearchContext, useInitSearchContext } from './context/search';
 import { ContentContext, useInitContentContext } from './context/content';
 import './App.css';
+import { SignInPage } from './pages/SignInPage/SignInPage';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
             <div className="body">
             <Routes>
               <Route path='/search' element={<Search />} />
+              <Route path='/signin' element={<SignInPage />} />
               <Route path="/" element={<Navigate replace to="/posts" />} />
               <Route path='/posts'>
               <Route index element={<Cards />}></Route>
