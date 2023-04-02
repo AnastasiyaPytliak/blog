@@ -37,7 +37,9 @@ const Cards = () => {
         <Tabs />
         <Sort date={dates} changeDate={setDate} value={sort} changeValue={setSort} />
           <div className={styles.container}> 
-            {cards ? cards.map((card) => <Card id={card.id} key={card.id} image={card.imageUrl} date={getformatDate(card.publishedAt)} title={card.title} />) : null}
+            {cards ? cards.map((card) => 
+              <Card id={card.id} key={card.id} image={card.imageUrl} date={getformatDate(card.publishedAt)} title={card.title} />) 
+            : null}
           </div>
         <Pagination page={page} allPages={allPages} changePage={changePage} />
       </PageTemplate>

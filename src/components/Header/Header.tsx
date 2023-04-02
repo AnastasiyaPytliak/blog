@@ -11,10 +11,20 @@ const Header = () => {
   const [open, setOpen] = useState(false)
 
   const theme = useThemeContext()
-  const navigate = useNavigate() 
+  const navigate = useNavigate()
+
+  const user = localStorage.getItem('username')
+  const auth = localStorage.getItem('auth')
 
   const handleBurgerMenuClick = () => {
     setOpen(!open)
+  }
+
+  const handleSignOut = () => {
+    navigate('/signin')
+    setOpen(open)
+    localStorage.setItem('username', 'Sign In')
+    localStorage.setItem('auth', 'false')
   }
 
   return (
@@ -25,10 +35,11 @@ const Header = () => {
         </div>
         <div className={open ? `${styles.container}  ${styles.active}` : styles.container}>
           <Search />
-          <div className={styles.user}>
-            <img src={noneAuth} alt="" />
-            <p className={styles.username}>Sign In</p>
+          <div className={styles.user} >
+            <img src={noneAuth} alt="" onClick={() => navigate('/signin')}/>
+            <p className={styles.username} onClick={handleBurgerMenuClick}>{auth ? user : user}</p>
           </div>
+          {auth === 'true' ? <button className={open ? styles.outNone : styles.out} onClick={handleSignOut}>Log out</button> : ''}
         </div>
       </div>
   )
