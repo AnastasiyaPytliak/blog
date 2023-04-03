@@ -31,3 +31,13 @@
 .activeDark {
   border-bottom: 2px solid #fff;
 }
+
+@media (max-width: 768px) {
+  .container {
+    margin-bottom: 48px;
+  }
+
+  .containerDark {
+    margin-bottom: 48px;
+  }
+}

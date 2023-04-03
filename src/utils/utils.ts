@@ -10,7 +10,6 @@ export const getformatDate = (date: string) => {
   return justDate
 }
 
-
 export const getPagesCount = (totalCount: number) => {
   let array = []
   const allPages = Math.ceil(totalCount / 12)
@@ -20,7 +19,6 @@ export const getPagesCount = (totalCount: number) => {
   return array
 }
 
-
 export const filterPagesCount = (totalCount: number[], currentPage: number) => {
   let array = totalCount.filter((page) => {
       if ( page > 1 && page <= currentPage + 1 && page >= currentPage - 1) {
@@ -29,7 +27,6 @@ export const filterPagesCount = (totalCount: number[], currentPage: number) => {
   })
   return array
 }
-
 
 export const getDate = (type: string) => {
   let formate = 'YYYY-MM-DD'

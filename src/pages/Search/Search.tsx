@@ -1,40 +1,39 @@
 import React, { useEffect, useState } from "react";
+import Pagination from "../../components/Pagination/Pagination";
 import Card from "../../components/Card/Card";
 import PageTemplate from "../PageTemplate/PageTemplate";
-import styles from "../Cards/Cards.module.css"
-import { getCardsCount, getCards, ICard } from "../../api/card/card";
+import { getCardsCount, getCards, INewCard } from "../../api/card/card";
 import { getformatDate, getPagesCount } from "../../utils/utils";
-import Pagination from "../../components/Pagination/Pagination";
 import { useSearchContext } from "../../context/search";
+import { useContentContext } from "../../context/content";
+import styles from "../Cards/Cards.module.css"
 
 
 const Search = () => {
-  const [cards, setCards] = useState<ICard[]>([])
-  const [content, setContent] = useState('Articles')
+  const [cards, setCards] = useState<INewCard[]>([])
   const [allPages, setAllPages] = useState<number[]>([1])
   const [page, setPage] = useState<number>(1)
 
   const changePage = (page: number) => setPage(page)
 
-  const {value, getValue} = useSearchContext()  
-
+  const value = useSearchContext()  
+  const content = useContentContext()  
 
   useEffect (() =>  {
     (async () => {
-      const response = await getCards(content, page, '', '',  value)
-      const cardsCount = await getCardsCount(content, '', '', value)
+      const response = await getCards(content.content, page, '', '',  value.value)
+      const cardsCount = await getCardsCount(content.content, '', '', value.value)
       const allPagesCount = getPagesCount(cardsCount.data)
       setCards(response)
       setAllPages(allPagesCount)     
     })()
-  }, [content, page])
-
+  }, [content.content, page, value.value])
 
   return (
     <div className={styles.wrapper}>
-      <PageTemplate title={`Search result ${value}`} linkName={''}>
+      <PageTemplate title={`Search result '${value.value}'`} linkName={''} post={''}>
           <div className={styles.container}>
-            {cards ? cards.filter((card) => card.title.match(value ? value : '')).map((card) => 
+            {cards ? cards.filter((card) => card.title.match(value.value ? value.value : '')).map((card) => 
             <Card id={card.id} key={card.id} image={card.imageUrl} date={getformatDate(card.publishedAt)} title={card.title} />) : null}
           </div>
         <Pagination page={page} allPages={allPages} changePage={changePage} />

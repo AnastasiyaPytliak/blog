@@ -1,57 +1,73 @@
 .container {
   margin-bottom: 40px;
+  cursor: pointer;
 }
 
 .containerDark {
   margin-bottom: 40px;
-}
-
-.container:nth-child(3n + 2) {
-  margin-left: 32px;
-  margin-right: 32px;
-}
-
-.containerDark:nth-child(3n + 2) {
-  margin-left: 32px;
-  margin-right: 32px;
+  cursor: pointer;
 }
 
 .wrapper {
-  width: 100%;
-  max-width: 352px;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   border-radius: 16px;
 }
 
+.wrapper:hover {
+  box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
+}
+
 .wrapperDark {
-  width: 100%;
-  max-width: 352px;
   display: flex;
   flex-direction: column;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
 }
 
+.wrapperDark:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
+}
+
 .image {
   width: 100%;
-  max-width: 352px;
   height: 208px;
   color: #000;
   overflow: hidden;
+  position: relative;
+  background: center url("../../image/img.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 16px 16px 0 0;
+}
+
+.image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: linear-gradient(133.87deg, rgba(77, 10, 199, 0.6) -10.18%, rgba(145, 46, 242, 0.6) 108.59%);
+}
+
+.image:hover::after {
+  background: none;
+  z-index: 3;
 }
 
 .img {
   width: 100%;
-  max-width: 352px;
   height: 100%;
   object-fit: cover;
   border-radius: 16px 16px 0 0;
 }
 
 .text {
-  height: 180px;
+  min-height: 180px;
   padding: 32px;
 }
 
@@ -75,32 +91,9 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 28px;
-}
 
-@media (max-width: 1180px) {
-  .container {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .containerDark {
-    margin-bottom: 40px;
-  }
-
-  /* .container:nth-child(2n+1) {
-    margin-right: 32px;
-  }
-   */
-  .container:nth-child(3n + 2) {
-    margin: inherit;
-  }
-
-  .containerDark:nth-child(3n + 2) {
-    margin: inherit;
-  }
-
-  .container:nth-child(2n+1) {
-    margin-right: 32px;
-  }
-  
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
