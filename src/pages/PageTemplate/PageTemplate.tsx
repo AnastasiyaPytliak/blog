@@ -18,8 +18,9 @@ const PageTemplate = ({ children, title, linkName, post }: IPageTemplate ) => {
   return (
     <div className={theme.theme === 'light' ? styles.container : styles.containerDark}>
       <div className={styles.namePage}>
-          <a className={theme.theme === 'light' ? styles.link : styles.linkDark} onClick={() => navigate('/posts')}>{linkName}</a>
-        <div  className={styles.title}>{title}</div>
+        <p className={theme.theme === 'light' ? styles.link : styles.linkDark} onClick={() => navigate('/posts')}>{linkName}</p>
+        <span>{post}</span>
+        <div className={styles.title}>{title}</div>
       </div>
       <div className={styles.body}>{children}</div>
     </div>
