@@ -33,10 +33,16 @@ export const SignIn = () => {
       navigate('/posts')
       localStorage.setItem('username', 'Nastya Pytliak')
       localStorage.setItem('auth', 'true')
+    // } else if (signIn.email !== value.email) {
+    //   alert('Email and/or password was wrong')
+    //   localStorage.setItem('username', 'Sign In')
+    //   localStorage.setItem('auth', 'false')
     } else {
-      alert('Email and/or password was wrong')
-      localStorage.setItem('username', 'Sign In')
-      localStorage.setItem('auth', 'false')
+      // alert('Email and/or password was wrong')
+      // localStorage.setItem('username', 'Sign In')
+      // localStorage.setItem('auth', 'false')
+      console.log('dd');
+      
     }
   }
   
@@ -46,14 +52,18 @@ export const SignIn = () => {
   return (
       <div className={styles.container}>
         <form className={theme.theme === 'light' ? styles.form : styles.formDark} >
+
           <div className={styles.label}>
             Email
           </div>
-          <input className={theme.theme === 'light' ? styles.input : styles.inputDark} type='email' name='email' placeholder='Your email' onChange={handleInputChange} />
+          <input className={theme.theme === 'light' ? styles.input : styles.inputDark} type='email' name='email' 
+          placeholder='Your email' onChange={handleInputChange} required/>
           <div className={styles.label}>
             Password
           </div>
-          <input className={theme.theme === 'light' ? styles.input : styles.inputDark} type='password' name='password' placeholder='Your password' onChange={handleInputChange} />
+          <input className={theme.theme === 'light' ? styles.input : styles.inputDark} type='password' name='password' 
+          placeholder='Your password' onChange={handleInputChange} required/>
+
           <div className={styles.text}>Forgot password?</div>
           <button type='submit' className={styles.button} onClick={handleSubmitButtonClick}>Sign in</button>
           <div className={styles.signup}>Don't have an account? <span>Sign Up</span></div>

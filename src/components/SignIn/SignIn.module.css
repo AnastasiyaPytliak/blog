@@ -10,6 +10,7 @@
   background: #FFFFFF;
   border-radius: 16px;
   padding: 40px;
+  width: 100%;
   max-width: 544px;
   margin-top: 25px;
   margin-bottom: 152px;
@@ -22,6 +23,7 @@
   background: rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 40px;
+  width: 100%;
   max-width: 544px;
   margin-top: 25px;
   margin-bottom: 152px;

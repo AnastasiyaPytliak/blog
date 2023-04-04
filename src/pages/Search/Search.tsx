@@ -28,12 +28,14 @@ const Search = () => {
       setAllPages(allPagesCount)     
     })()
   }, [content.content, page, value.value])
+  
+  let valueSearch :any = value.value 
 
   return (
     <div className={styles.wrapper}>
       <PageTemplate title={`Search result '${value.value}'`} linkName={''} post={''}>
           <div className={styles.container}>
-            {cards ? cards.filter((card) => card.title.match(value.value ? value.value : '')).map((card) => 
+            {cards ? cards.filter((card) => card.title.toLowerCase().match(valueSearch.toLowerCase() ? valueSearch.toLowerCase() : '')).map((card) => 
             <Card id={card.id} key={card.id} image={card.imageUrl} date={getformatDate(card.publishedAt)} title={card.title} />) : null}
           </div>
         <Pagination page={page} allPages={allPages} changePage={changePage} />
