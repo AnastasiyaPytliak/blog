@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useSearchContext } from "../../context/search";
 import { useThemeContext } from "../../context/theme";
@@ -25,14 +25,14 @@ const Search = ( ) => {
   }
 
   return (
-    <form onSubmit={handleSubmitSearch}>
+    <form className={styles.form} onSubmit={handleSubmitSearch}>
       <input className={theme.theme === 'light' ? styles.search : styles.searchDark} 
         type="text" 
         placeholder='Search...'  
         onChange={handleSearch} 
         value={value} 
       />
-      <button className={theme.theme === 'light' ? styles.button : styles.buttonDark} type="button" onClick={handleClearSearch}></button>
+      <span className={theme.theme === 'light' ? styles.button : styles.buttonDark} onClick={handleClearSearch}></span>
     </form>
   )
 }

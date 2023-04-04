@@ -36,7 +36,6 @@ export const getCards = async (
   return response.data
 }
 
-
 export const getCardsCount = async (
   content: string | undefined,
   sort: string,

@@ -49,11 +49,13 @@ export const SignIn = () => {
           <div className={styles.label}>
             Email
           </div>
-          <input className={theme.theme === 'light' ? styles.input : styles.inputDark} type='email' name='email' placeholder='Your email' onChange={handleInputChange} />
+          <input className={theme.theme === 'light' ? styles.input : styles.inputDark} type='email' name='email' 
+          placeholder='Your email' onChange={handleInputChange} required/>
           <div className={styles.label}>
             Password
           </div>
-          <input className={theme.theme === 'light' ? styles.input : styles.inputDark} type='password' name='password' placeholder='Your password' onChange={handleInputChange} />
+          <input className={theme.theme === 'light' ? styles.input : styles.inputDark} type='password' name='password' 
+          placeholder='Your password' onChange={handleInputChange} required/>
           <div className={styles.text}>Forgot password?</div>
           <button type='submit' className={styles.button} onClick={handleSubmitButtonClick}>Sign in</button>
           <div className={styles.signup}>Don't have an account? <span>Sign Up</span></div>

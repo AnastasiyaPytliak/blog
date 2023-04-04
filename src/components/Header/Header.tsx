@@ -29,17 +29,32 @@ const Header = () => {
 
   return (
       <div className={theme.theme === 'light' ? styles.wrapper : styles.wrapperDark}>
-        <div className={styles.logo} onClick={() => navigate('/posts')}>
-          <img src={logo} alt="" />
+
+        <div className={styles.logo}>
+          <img src={logo} alt="" onClick={() => navigate('/posts')} />
           <div className={!open ? styles.burgerMenu : styles.burgerMenuOpen} onClick={handleBurgerMenuClick}></div>
         </div>
-        <div className={open ? `${styles.container}  ${styles.active}` : styles.container}>
+
+        <div className={open ? `${theme.theme === 'light' ? styles.container :styles.containerDark}  ${styles.active}` 
+          : theme.theme === 'light' ? styles.container :styles.containerDark}>
           <Search />
           <div className={styles.user} >
             <img src={noneAuth} alt="" onClick={() => navigate('/signin')}/>
-            <p className={styles.username} onClick={handleBurgerMenuClick}>{auth ? user : user}</p>
+            <p className={styles.username} onClick={handleBurgerMenuClick}>{user}</p>
           </div>
-          {auth === 'true' ? <button className={open ? styles.outNone : styles.out} onClick={handleSignOut}>Log out</button> : ''}
+
+          <div className={styles.theme}>
+            <p>Dark theme</p>
+            <label className={styles.switch}>
+              <input type="checkbox" className={styles.switchInput} onClick={() => theme.changeThemeFunc?.()} 
+              checked={theme.theme === 'light' ? false : true}/>
+              <span className={styles.switchSlider}></span>
+            </label>
+          </div>
+
+          {auth === 'true' ? 
+          <button className={open ? theme.theme === 'light' ? styles.out :styles.outDark : styles.outNone}onClick={handleSignOut}>Log Out</button> 
+          : ''}
         </div>
       </div>
   )

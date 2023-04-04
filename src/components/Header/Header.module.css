@@ -25,28 +25,43 @@
   width: 100%;
 }
 
-form {
-  width: 100%;
+.containerDark {
   display: flex;
-  border-right: 1px solid #F3F3F3;
-  padding: 0 32px;
+  justify-content: right;
+  width: 100%;
 }
 
-.search {
+.form {
   width: 100%;
-  border: none;
+  display: flex;
+  justify-content: flex-end;
+  border-right: 1px solid #F3F3F3;
 
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: rgba(49, 48, 55, 0.5);
 }
 
-.button {
-  width: 100%;
-  border: 1px solid salmon;
+.search {
+  position: relative;
+  width: 0%;
   background-image: url('../../image/search-icon.png');
   background-repeat: no-repeat;
+  background-position: bottom 36px right 32px;
+  border: none;
+  color: rgba(49, 48, 55, 0.5);
+  padding: 0 32px;
+  cursor: pointer;
+}
+
+.search:focus + span {
+  position: absolute;
+  top: 16px;
+  background-image: url('../../image/cancel-icon.png');
+  background-repeat: no-repeat;
+  background-position: bottom 20px right 30px;
+  outline: none;
+  padding: 35px 30px;
   cursor: pointer;
 }
 
@@ -61,36 +76,25 @@ form {
   padding: 0 32px;
   cursor: pointer;
 
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
   color: rgba(49, 48, 55, 0.5);
 }
 
-.search:focus{
-  width: 85%;
+.search:focus {
+  width: 100%;
   background-color: rgba(49, 48, 55, 0.1);
+  background-image: none;
   outline: none;
-  transition: 0.5s;
-}
-
-.search:focus .button{
-  background-color: rgba(49, 48, 55, 0.1);
-  background-image: url('../../image/cancel-icon.png');
-  background-repeat: no-repeat;
-  background-position: bottom 36px right 32px;
-  outline: none;
-  transition: 0.5s;
+  transition: ease-in-out 0.5s;
 }
 
 .searchDark:focus {
-  width: 85%;
+  width: 100%;
   background-color: #fff;
   background-image: url('../../image/cancel-icon.png');
   background-repeat: no-repeat;
   background-position: bottom 36px right 32px;
   outline: none;
-  transition: 0.5s;
+  transition: ease-in-out 0.5s;
 }
 
 .user {
@@ -121,11 +125,33 @@ form {
   cursor: pointer;
 }
 
+
+.outDark {
+  display: block;
+  position: absolute;
+  background-color: rgb(139 137 146 / 10%);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 34px;
+  top: 100px;
+  padding: 10px 90px;
+  cursor: pointer;
+}
+
+.theme {
+  display: none;
+}
+
 .outNone {
   display: none;
 }
 
 .out:hover {
+  background-color: #6C1BDB;
+  color: #fff;
+}
+
+.outDark:hover {
   background-color: #6C1BDB;
   color: #fff;
 }
@@ -144,6 +170,8 @@ form {
     align-items: center;
     justify-content: space-between;
     padding: 18px 24px;
+    position: relative;
+    z-index: 104;
   }
   
   .burgerMenu {
@@ -154,6 +182,7 @@ form {
   }
 
   .burgerMenuOpen {
+    z-index: 103;
     width: 24px;
     height: 24px;
     background-image: url('../../image/cancel-icon.png');
@@ -164,9 +193,59 @@ form {
     display: none;
   }
 
+  .containerDark {
+    display: none;
+  }
+
   .container.active {
     display: flex;
     flex-wrap: wrap;
+    align-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    padding-top: 90px;
+    transition: left 1s;
+    background-color: #F3F3F3;
+  }
+
+  .container.active::after {
+    background-color: #6C1BDB;
+  }
+
+  .containerDark.active  {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0px;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 100;
+    padding-top: 90px;
+    transition: left 1s;
+    background-color: rgb(74 73 79);
+  }
+
+  .containerDark.active::after {
+    background-color: #6C1BDB;
+  }
+
+  .form {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    top: 172px;
+    border-right: none;
+    order: 3;
   }
 
   .search {
@@ -176,7 +255,7 @@ form {
     border-bottom: 1px solid #E8E8E8;
     border-right: none;
     padding: 0 24px;
-    order: 2;
+    order: 3;
   }
 
   .searchDark {
@@ -186,7 +265,7 @@ form {
     border-bottom: 1px solid #E8E8E8;
     border-right: none;
     padding: 0 24px;
-    order: 2;
+    order: 3;
   }
   
   .search:focus {
@@ -195,6 +274,10 @@ form {
     background-image: url('../../image/search-icon.png');
     background-position: bottom 29px right 24px;
     transition: none;
+  }
+
+  .search:focus + span {
+    display: none;
   }
 
   .searchDark:focus {
@@ -206,10 +289,112 @@ form {
   }
 
   .user {
-    order: 1;
+    order: 2;
     margin: 0;
     width: 100%;
     padding: 18px 24px;
-    background-color: rgba(26, 26, 30, 0.1);
+    height: 83px;
+    background-color: rgb(6 6 6 / 21%);
+  }
+
+  .out {
+    display: block;
+    background-color: rgba(49, 48, 55, 0.1);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+    padding: 10px 90px;
+    cursor: pointer;
+    width: 100%;
+    order: 5;
+    position: static;
+    height: 83px;
+  }
+
+  .outDark {
+    display: block;
+    background-color: rgb(6 6 6 / 21%);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+    padding: 10px 90px;
+    cursor: pointer;
+    width: 100%;
+    order: 5;
+    position: static;
+    height: 83px;
+  }
+
+  .out:hover {
+    background-color: #6C1BDB;
+    color: #fff;
+  }
+
+  .outDark:hover {
+    background-color: #6C1BDB;
+    color: #fff;
+  }
+
+  .theme {
+    display: flex;
+    order: 4;
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%)
+  }
+  
+  .theme p {
+    margin-right: 80px;
+  }
+  
+  .switch {
+    display: inline-block;
+    position: relative;
+    width: 32px;
+    height: 20px;
+  }
+  
+  .switchInput {
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  
+  .switchSlider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(49, 48, 55, 0.5);
+    border-radius: 10px;
+    transition: 0.4s;
+  }
+  
+  .switchSlider::before {
+    content: '';
+    position: absolute;
+    cursor: pointer;
+    left: 2px;
+    bottom: 2px;
+    width: 16px;
+    height: 16px;
+  
+    background-color: #fff;
+    border-radius: 10px;
+    transition: 0.4s;
+  }
+  
+  .switchInput:checked + .switchSlider {
+    background-color: #912EF2;
+    border-radius: 10px;
+    transition: 0.4s;
+  }
+  
+  .switchInput:checked + .switchSlider::before {
+    transform: translateX(12px);
+    transition: 0.4s;
   }
 }

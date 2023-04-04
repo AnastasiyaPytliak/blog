@@ -6,7 +6,7 @@ import styles from "./SignInPage.module.css"
 export const SignInPage = () => {
 
   return (
-      <PageTemplate title={"Sign In"} linkName={"Back to home"} post={''}>
+      <PageTemplate title={"Sign In"} linkName={''} post={''}>
         <div className={styles.wrapper}>
           <SignIn />
         </div>
