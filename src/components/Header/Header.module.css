@@ -83,8 +83,6 @@ form {
   transition: 0.5s;
 }
 
-
-
 .searchDark:focus {
   width: 85%;
   background-color: #fff;
@@ -99,14 +97,37 @@ form {
   display: flex;
   align-items: center;
   margin: 20px 32px;
+  cursor: pointer;
 }
 
 .username {
+  position: relative;
   font-weight: 600;
   font-size: 16px;
   line-height: 34px;
   margin-left: 16px;
   white-space: nowrap;
+}
+
+.out {
+  display: block;
+  position: absolute;
+  background-color: rgba(49, 48, 55, 0.1);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 34px;
+  top: 100px;
+  padding: 10px 90px;
+  cursor: pointer;
+}
+
+.outNone {
+  display: none;
+}
+
+.out:hover {
+  background-color: #6C1BDB;
+  color: #fff;
 }
 
 @media (max-width: 770px) {
