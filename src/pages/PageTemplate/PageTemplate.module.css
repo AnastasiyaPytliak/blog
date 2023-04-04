@@ -25,7 +25,7 @@
 }
 
 .link {
-  display: block;
+  display: inline-block;
   margin-right: 5px;
   margin-bottom: 20px;
   font-weight: 400;
@@ -42,7 +42,7 @@
 }
 
 .linkDark {
-  display: block;
+  display: inline-block;
   margin-right: 5px;
   margin-bottom: 20px;
   font-weight: 400;
