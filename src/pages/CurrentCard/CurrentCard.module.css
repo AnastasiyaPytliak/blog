@@ -1,0 +1,19 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  padding-bottom: 32px;
+  width: 1126px;
+}
+
+@media (max-width: 990px) {
+  .cardsMob {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+        scrollbar-width: none;
+  }
+
+  .cardsMob::-webkit-scrollbar {
+      display: none;
+  }
+}

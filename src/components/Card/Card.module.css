@@ -1,0 +1,99 @@
+.container {
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.containerDark {
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 16px;
+}
+
+.wrapper:hover {
+  box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
+}
+
+.wrapperDark {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+.wrapperDark:hover {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 12px 40px 9px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+  width: 100%;
+  height: 208px;
+  color: #000;
+  overflow: hidden;
+  position: relative;
+  background: center url("../../image/img.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 16px 16px 0 0;
+}
+
+.image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  background: linear-gradient(133.87deg, rgba(77, 10, 199, 0.6) -10.18%, rgba(145, 46, 242, 0.6) 108.59%);
+}
+
+.image:hover::after {
+  background: none;
+  z-index: 3;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px 16px 0 0;
+}
+
+.text {
+  min-height: 180px;
+  padding: 32px;
+}
+
+.date {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(49, 48, 55, 0.5);
+  padding-bottom: 8px;
+}
+
+.dateDark {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: rgba(255, 255, 255, 0.5);
+  padding-bottom: 8px;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 28px;
+
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}

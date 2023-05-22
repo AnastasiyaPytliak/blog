@@ -1,0 +1,224 @@
+.container  {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 64px;
+}
+
+.typeOfFiltr {
+  display: flex;
+}
+
+.filtr {
+  background-color: rgba(49, 48, 55, 0.1);
+  padding: 16px 40px;
+  border-radius: 4px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.filtr.active {
+  background-color: #6C1BDB;
+  color: #fff;
+}
+
+.filtr:hover {
+  background-color: #6C1BDB;
+  color: #fff;
+}
+
+.filtrDark {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 16px 40px;
+  border-radius: 4px;
+  margin-right: 16px;
+  cursor: pointer;
+}
+
+.filtrDark:hover {
+  background-color: #6C1BDB;
+}
+
+.sort {
+  position: absolute;
+  margin-top: 8px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.sortNone {
+  display: none;
+}
+
+.select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 256px;
+  padding: 16px 20px;
+  border-radius: 4px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.select span {
+  color: rgba(49, 48, 55, 0.5);
+}
+
+.selectDark {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 256px;
+  padding: 16px 20px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+
+.selectDark span {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.pathDark {
+  stroke:#fff;
+}
+
+.date {
+  display: none;
+}
+
+.option {
+  width: 250px;
+  background-color: #fff;
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.option.active {
+  color: #6C1BDB;
+}
+
+.option:hover {
+  color: #6C1BDB;
+}
+
+.option:first-child {
+  border-bottom: 1px solid rgba(49, 48, 55, 0.1);
+}
+
+.optionDark {
+  width: 256px;
+  background: rgba(49, 47, 47, 0.9);
+  padding: 16px 20px;
+  border-radius: 4px;
+}
+
+.optionDark.active {
+  color: #6C1BDB;
+}
+
+.optionDark:hover {
+  background-color: rgb(37 34 34 / 90%);
+  color: #6C1BDB;
+}
+
+.optionDark:first-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 990px) {
+  .container  {
+    justify-content: space-between;
+    margin-bottom: 56px;
+  }
+
+  .typeOfFiltr {
+    display: none;
+    position: absolute;
+    margin-top: 65px;
+    cursor: pointer;
+  }
+  
+  .filtr {
+    width: 328px;
+    background-color: #fff;
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 0;
+    border-bottom: 1px solid rgba(49, 48, 55, 0.1);
+  }
+    
+  .filtr.active {
+    background-color: #fff;
+    color: #6C1BDB;
+  }
+  
+  .filtr:hover {
+    background-color: #fff;
+    color: #6C1BDB;
+  }
+  
+  .filtrDark {
+    width: 328px;
+    background: rgba(49, 47, 47, 0.9);
+    padding: 16px 20px;
+    border-radius: 4px;
+    margin: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .filtrDark.active {
+    background: rgba(49, 47, 47, 0.9);
+    color: #6C1BDB;
+  }
+  
+  .filtrDark:hover {
+    background: rgba(49, 47, 47, 0.9);
+    color: #6C1BDB;
+  }
+
+  .date {
+    display: block;
+    z-index: 5;
+  }
+
+  .select {
+    width: 328px;
+  }
+
+  .option {
+    width: 328px;
+  }
+}
+
+@media (max-width: 760px) {
+  .container  {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+
+  .select {
+    width: 272px;
+  }
+
+  .date {
+    margin-bottom: 32px;
+  }
+
+  .option {
+    width: 272px;
+  }
+
+    
+  .filtr {
+    width: 272px;
+  }
+  
+  .filtrDark {
+    width: 272px;
+  }
+}
